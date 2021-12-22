@@ -1,5 +1,6 @@
 import React from 'react'
 import { Carousel } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 import "./Home.css";
 
@@ -27,27 +28,27 @@ const Home = () => {
                     <p className='p-text'>
                         We introduce ourselves as one of the leading transport Company of India founded in January, 1985 having their own fleet of 475 trucks, including Car Carrier Trailers/Goods Containers Trailers / Multi XL Containers.
                     </p>
-                    <button id="read-button">
-                        READ MORE
-                    </button>
+
+                    <Link to="/Aboutus" id="read-button">READ MORE</Link>
+
                 </div>
                 <div className="text-p">
                     <h4>Our Services</h4>
                     <p className='p-text'>
                         Over the years, the company has built up the infrastructure and management to car, bike provide a  customer friendly organization to meet your logistic requirements with optimal efficiency.
                     </p>
-                    <button id="read-button">
-                        READ MORE
-                    </button>
+
+                    <Link to="/Ourservices" id="read-button">READ MORE</Link>
+
                 </div>
                 <div className="text-p">
                     <h4>Career Prospects</h4>
                     <p className='p-text'>
                         We have a trained and talented workforce in our company who help us serve our customers better. We believe in continual development and learning-by-doing.
                     </p>
-                    <button id="read-button">
-                        READ MORE
-                    </button>
+
+                    <Link to="/Ourclients" id="read-button">READ MORE</Link>
+
                 </div>
             </div>
 

@@ -33,13 +33,25 @@
 }
 
 #read-button{
-    width:6.5rem;
-    height:2.5rem;
+    padding: 10px 7px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    background-color: #464242;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0px 5px 10px rgb(153, 152, 152);
+    cursor: pointer;
+    transition: all 0.1s;
+    /* width:6.5rem;
+    height:4rem;
     border-radius: 5px;
+    text-decoration: none;
     color: #fff;
     border: none;
     background-color: rgb(70, 66, 66);
-    box-shadow: 0px 5px 10px rgb(153, 152, 152);
+    box-shadow: 0px 5px 10px rgb(153, 152, 152); */
+    
 }
 #read-button:hover{
   color: #E0AC1C;
@@ -166,6 +178,10 @@
     .content .box .counter{
       font-size: 30px;
       padding-bottom: 5px;
+    }
+
+    #read-button{
+      padding: 8px 7px;
     }
     
   }
