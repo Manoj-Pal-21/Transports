@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap');
+
+body{
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding: 0;
+}
+
+.w-container{
+    background-color: #292F37;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0px 8px 0px;
+}
+
+.icon{
+    height: 1.5rem;
+}
+
+.no-text{
+    color: #fff;
+    padding-top: 2px;
+    padding-left: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.no-text:hover{
+    color:orange;
+}
+
+.navbar{
+    background-color: #E7EAED;
+    width: 100%;
+    height: 4.5rem;
+}
+
+.left-side{
+    flex:50%;
+    align-items: center;
+    float: left;
+} 
+
+
+.links {
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.links .a{
+    margin-right: 20px;
+    text-decoration: none;
+    color: #292F37;
+}
+
+.left-side .b{
+    display:none;
+}
+
+.a:hover{
+    color: orange;
+}
+
+.right-side{
+    padding-right: 2rem;
+    float: right;
+}
+
+.login{
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 2rem;
+    background-color: #464242;
+    color: rgb(243, 242, 240);
+    text-decoration: none;
+
+}
+
+.login:hover{
+    color:orange;
+}
+
+.signup{
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 2rem;
+    background-color: #464242;
+    margin-left: 10px;
+    color: rgb(243, 242, 240);
+    text-decoration: none;
+}
+
+.signup:hover{
+    color:orange;
+}
+
+@media screen and (max-width: 870px) {
+
+    .icon{
+        height: 16px;
+    }
+    .left-side .a{
+        padding-bottom: 8px;
+    }
+
+    .right-side{
+        padding-right: 10px;
+    }
+
+    .login{
+        font-size: 12px;
+    }
+
+    .signup{
+        font-size: 12px;
+    }
+
+    .left-side #hidden{
+        display: none;
+    }
+}
+@media screen and (max-width: 870px) {
+
+    .no-text{
+        font-size: 12px;
+    }
+
+    .left-side .b{
+        display: block;
+        margin-left: 20px;
+        font-size: 1.8rem;
+        color:#464242;
+        text-decoration: none;
+    }
+
+    .links{
+        display: flex;
+        margin:0;
+        flex-direction: column;
+        z-index: 1;
+        width: 45%;
+        position:absolute;
+        background-color: rgba(231, 234, 237) ;
+        padding:20px;
+        top: 75px;
+        border-bottom-right-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+}
+

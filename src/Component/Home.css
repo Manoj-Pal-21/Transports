@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Carousel */
+
+.c-img{
+    width :100%;
+    height:100vh;
+}
+
+/* text-p */
+
+.text{
+    display: flex;
+    padding: 3rem;
+}
+
+.text-p h4{
+    font-weight: bold;
+} 
+
+.p-text{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 8px;
+    font-size: medium;
+    color: rgb(165, 152, 152);
+}
+
+#read-button{
+    width:6.5rem;
+    height:2.5rem;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    background-color: rgb(70, 66, 66);
+    box-shadow: 0px 5px 10px rgb(153, 152, 152);
+}
+#read-button:hover{
+  color: #E0AC1C;
+}  
+
+/* counter */
+
+.counter-up{
+    background: linear-gradient(to bottom, #f2f2f2 0%, hsl(231, 14%, 18%) 99%) no-repeat;
+    box-shadow: 3px 1px 16px 4px rgba(0,0,0,0.84);
+    min-height: 50vh;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .counter-up::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* background: rgba(0,0,0,0.8); */
+  }
+  .counter-up .content{
+    /* z-index: 1; */
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .counter-up .content .box{
+    border: 1px dashed rgba(20, 20, 20, 0.6);
+    width: calc(25% - 30px);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin: 40px 0px 40px;
+    height: 20rem;
+  }
+  .content .box .icon{
+    font-size: 48px;
+    color: #464242;
+  }
+  .content .box .counter{
+    font-size: 50px;
+    font-weight: 500;
+    color: #E0AC1C;
+    font-family: sans-serif;
+    padding-top: 80px
+  }
+  .content .box .text{
+    font-weight: 400;
+    color: #464242;
+  }
+  @media screen and (max-width: 1036px) {
+    .counter-up{
+      padding: 50px 50px 0 50px;
+    }
+    .counter-up .content .box{
+      width: calc(50% - 30px);
+      margin-bottom: 50px;
+    }
+  }
+  @media screen and (max-width: 580px) {
+    .counter-up .content .box{
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 500px) {
+
+    .c-img{
+        height: 12rem;
+    }
+    .text{
+      padding:1rem;
+    }
+
+    .text-p h4{
+      margin-bottom: 2px;
+       font-size: 10px;
+    }
+
+    .p-text{
+      font-size: 6px;
+      margin-bottom: 2px;;
+    }
+
+    #read-button{
+      width: 4rem;
+      height: 2rem;
+      font-size: 8px;
+      margin-bottom: 15px;
+
+    }
+
+    .wrapper{
+      padding: 20px;
+    }
+
+    .counter-up{
+      padding: 0px 20px 0 20px;
+    }
+
+    .counter-up .content{
+      padding-bottom:1px;
+    }
+
+    .counter-up .content .box{
+      height: 200px
+    }
+    .content .box .icon{
+      font-size: 30px;
+      padding-top: 16px;
+    }
+    .content .box .counter{
+      font-size: 30px;
+      padding-bottom: 5px;
+    }
+    
+  }
+  
+
+
+
+
+
+    /* background: url("https://enterslice.com/learning/wp-content/uploads/2017/11/pexels-photo-119550.jpeg") no-repeat; */
