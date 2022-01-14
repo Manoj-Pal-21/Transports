@@ -2,8 +2,11 @@ import React from 'react';
 import "./Aboutus.css";
 
 const Aboutus = () => {
+
+    window.scrollTo(0, 0);
+
     return (
-        <div>
+        <div className="main-container">
             <figure className='position-relative'>
                 <img src="images/H.png" alt="" className='c-img' />
                 <figcaption>

@@ -17,6 +17,9 @@ figcaption h1{
     font-size: 4em;
 }
 
+.h-title{
+    font-weight: bold;
+}
 figcaption p{
     position:absolute;
     bottom: 5rem;
@@ -65,13 +68,13 @@ figcaption p{
 }
 
 .icon-no, .icon-email{
-    color: green;
+    color: orange;
     text-decoration: none;
 }
 
 
 strong{
-    color: rgb(216, 23, 23);
+    color: rgb(238, 10, 10);
     text-decoration: none;
 }
 

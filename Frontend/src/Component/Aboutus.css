@@ -50,28 +50,21 @@ figcaption p{
 
 @media screen and (max-width: 500px) {
 
-    .c-text0 h1{
-        font-size: 10px;
-        margin: 0px;
-        margin-left: 10px;
-        padding-bottom: 10px;
-    }
 
-    .c-text0 p{
-        font-size: 6px;
-        width: 30vh;
-        margin: 0px;
-        padding: 0px;
-        margin-left: 10px;
-        margin-right: 5px;
-        margin-top: 5px;
+    .c-text0 h1{
+        margin-left: 5px;
+    }
+    
+    .container-skew0{
+        display: block;
     }
 
     .side-img0 .s-img0{
-        width:20vh;
-        margin:0;
+        width:52vh;
+        margin: 0.4rem;
+        margin-left: 4px;
         padding:0;
-        margin-top: 4rem;
+        padding-top: 3rem;
     }    
 
 }

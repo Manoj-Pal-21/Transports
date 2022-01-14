@@ -7,8 +7,10 @@ import "./Home.css";
 
 const Home = () => {
 
+    window.scrollTo(0, 0);
+
     return (
-        <div>
+        <div className="main-container">
             <Carousel>
                 <Carousel.Item>
                     <img src="images/T.png" alt="" className='c-img' />
@@ -56,22 +58,22 @@ const Home = () => {
             <div className='counter-up'>
                 <div className='content'>
                     <div className='box'>
-                        <div class="icon"><i className="fa fa-history"></i></div>
+                        <img src="https://img.icons8.com/ios/64/000000/last-24-hours.png" className='icon' alt="" />
                         <CountUp className="counter" end={724} duration={6} />
                         <div className="text">Working Hours</div>
                     </div>
                     <div className='box'>
-                        <div class="icon"><i className="fa fa-gift"></i></div>
+                        <img src="https://img.icons8.com/ios/64/000000/task-completed.png" className='icon1' alt="" />
                         <CountUp className="counter" end={508} duration={6} />
                         <div className="text">Complete<br /> Projects</div>
                     </div>
                     <div className='box'>
-                        <div class="icon"><i className="fa fa-users"></i></div>
+                        <img src="https://img.icons8.com/ios/64/000000/family--v2.png" className='icon' alt="" />
                         <CountUp className="counter" end={436} duration={6} />
                         <div className="text">Happy Clients</div>
                     </div>
                     <div className='box'>
-                        <div class="icon"><i className="fa fa-star"></i></div>
+                        <img src="https://img.icons8.com/ios/64/000000/medal.png" className='icon' alt="" />
                         <CountUp className="counter" end={102} duration={6} />
                         <div className="text">Awards Received</div>
                     </div>

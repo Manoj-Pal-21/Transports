@@ -2,8 +2,11 @@ import React from 'react'
 import "./Ourservices.css";
 
 const Ourservices = () => {
+
+    window.scrollTo(0, 0);
+
     return (
-        <div>
+        <div className="main-container">
             <figure className='position-relative'>
                 <img src="images/H2.png" alt="" className='c-img' />
                 <figcaption>
@@ -12,7 +15,7 @@ const Ourservices = () => {
                 </figcaption>
             </figure>
 
-            <hr/>
+            <hr />
 
             <div className='container-skew'>
                 <div className='side-img'>

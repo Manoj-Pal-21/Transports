@@ -2,8 +2,11 @@ import React from 'react'
 import "./Ourclients.css";
 
 const Ourclients = () => {
+
+    window.scrollTo(0, 0);
+
     return (
-        <div>
+        <div className="main-container">
             <figure className='position-relative'>
                 <img src="images/H1.png" alt="" className='c-img' />
                 <figcaption>
