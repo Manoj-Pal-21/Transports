@@ -52,11 +52,11 @@ const Footer = () => {
                     </p>
                     <div className="footer-icons">
 
-                        <Link to="/Home" className="a"><i className="fab fa-facebook-f"></i></Link>
-                        <Link to="/Home" className="a"><i className="fab fa-instagram"></i></Link>
-                        <Link to="/Home" className="a"><i className="fab fa-linkedin"></i></Link>
-                        <Link to="/Home" className="a"><i className="fab fa-twitter"></i></Link>
-                        <Link to="/Home" className="a"><i className="fab fa-youtube"></i></Link>
+                        <a href="https://www.facebook.com/" className="a"><i className="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" className="a"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" className="a"><i className="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/" className="a"><i className="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" className="a"><i className="fab fa-youtube"></i></a>
 
                     </div>
                 </div>

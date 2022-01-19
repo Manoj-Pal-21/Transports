@@ -1,62 +1,37 @@
-/* @import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-figure{
-    padding-bottom: 4rem;
-}
-
-
-figcaption h1{
-    position:absolute;
-    bottom: 12rem;
-    margin: 0 2rem;
-    color: #fff;
-    font-size: 4em;
-}
-
-figcaption p{
-    position:absolute;
-    bottom: 5rem;
-    margin: 0 2rem;
-    color: #fff;
-    font-size: 1.8em;
-} */
 
 .container-skew{
+    margin: 2em 0em;
+}
+
+.c-text{
     display: flex;
 }
 
+.c-text .s-img{
+    width: 100vh;
+    margin-left: 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header-p{
+    margin-top: 4em;
+}
+
 .c-text h1{
-    padding-top: 110px;
-    margin-left: 30px;
+    font-size: 2em;
     font-weight: bold;
     color:#292F37;
-
 }
 
 .c-text p{
     font-size: 20px;
-    padding-left: 30px;
-    width: 90%;
-    margin: 50px 0px 20px;
+    margin-top: 2em;
+    padding: 0em 3em;
     color: rgb(110, 105, 105);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.side-img .s-img{
-    width: 100vh;
-    padding-top: 5rem;
-    margin-left: 20px;
-    margin-bottom: 4rem;
-
-}
 
 /* image line 2 */
 
@@ -64,27 +39,29 @@ figcaption p{
     display: flex;
 }
 
+.c-text1{
+    display: flex;
+}
+
 .c-text1 h1{
-    padding-top: 110px;
-    margin-left: 20px;
+    font-size: 2em;
     font-weight: bold;
     color:#292F37;
 }
 
 .c-text1 p{
     font-size: 20px;
-    width: 90%;
-    margin: 50px 20px 20px;
+    margin-top: 2em;
+    padding: 0em 4em;
     color: rgb(110, 105, 105);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.side-img1 .s-img1{
+.c-text1 .s-img1{
     width: 100vh;
-    padding-top: 5rem;
     margin-right: 20px;
-    margin-bottom: 4rem;
-
+    border-radius: 5px;
+    box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
    
 
@@ -94,60 +71,59 @@ figcaption p{
 
 @media screen and (max-width: 500px) {
 
-    .side-img .s-img{
-        width:20vh;
-        margin:0;
-        padding:0;
-        padding-left: 20px;
-        margin-top: 15px;
-
+    .c-text{
+        display: block;
     }
 
-    .c-text h1{
-        font-size: 10px;
-        margin:0;
-        padding:0;
-        padding-left: 15px;
-        margin-bottom: 10px;
+    .c-text1{
+        display: block;
+    }
 
+    .c-text .s-img{
+        width:23em;
+        margin:  0em 0.8em;
+        border-radius: 1em; 
+        box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .header-p{
+        margin: 2em 0.5em;
+    }
+
+     .c-text h1{
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+        margin-right: 2em;
     }
 
     .c-text p{
-        font-size: 10px;
-        width: 30vh;
+        font-size: 1em;
         margin:0;
         padding:0;
-        padding-left: 15px;
-
-    }
-
-    .side-img1 .s-img1{
-        width:20vh;
-        margin:0;
-        padding:0;
-        padding-right: 20px;
-        margin-top: 15px;
-    }
+        margin: 1em;   
+    } 
 
     .c-text1 h1{
-        font-size: 10px;
-        margin:0;
-        padding:0;
-        padding-right: 10px;
-        margin-left: 20px;
-        margin-bottom: 10px;
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+        margin-top: 1em;
+        margin-right: 3em;
     }
-
     .c-text1 p{
-        font-size: 10px;
-        width: 30vh;
+        font-size: 1em;
         margin:0;
         padding:0;
-        padding-right: 10px;
-        margin-left: 20px;
-
+        margin: 1em;  
     }
 
+     .c-text1 .s-img1{
+        width:23em;
+        margin: 0.8em;
+        border-radius: 1em;
+        box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    } 
 }
 
 

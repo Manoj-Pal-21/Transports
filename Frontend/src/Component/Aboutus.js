@@ -28,7 +28,7 @@ const Aboutus = () => {
                     <p>
                         We have been appreciated with the many prestigious awards including Udyog Rattan and Rashtriya Udyog for our exemplary services and contributions to the industry.
                     </p>
-                </div >
+                </div>
                 <div className='side-img0'>
                     <img src="images/H4.png" alt="" className='s-img0'></img>
                 </div>

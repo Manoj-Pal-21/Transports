@@ -7,7 +7,7 @@ const userBooking = () => {
     window.scrollTo(0, 0);
     return (
         <div className='admin-table'>
-            <section className="bg-light p-5">
+            <section className="shadow-lg p-4 mb-5 bg-white rounded">
                 <h1 className="pb-2">USER DATA</h1>
                 <div className="table-responsive" id="no-more-tables">
                     <table className="table bg-white">

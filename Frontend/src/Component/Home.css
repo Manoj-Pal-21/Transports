@@ -36,10 +36,10 @@
 }
 
 #read-button{
-    padding: 10px 12px;
-    font-size: 14px;
+    padding: 1em 1em;
+    font-size: 80%;
     text-transform: uppercase;
-    border-radius: 2rem;
+    border-radius: 2em;
     background-color: #464242;
     color: #fff;
     text-decoration: none;
@@ -128,24 +128,24 @@
   @media screen and (max-width: 500px) {
 
     .c-img{
-        height: 12rem;
+        height: 13em;
     }
     .text{
-      margin:1rem;
+      margin: 1.5em;
+      display: block;
     }
 
     .text-p h4{
-      margin-bottom: 2px;
-       font-size: 10px;
+      margin-bottom: 0.2em;
+       font-size: 1.2em;
     }
 
     .p-text{
-      font-size: 6px;
-      margin-bottom: 0px;
+      font-size: 1em;
     }
 
-    #read-button{
-      font-size: 7px;
+    .text-p{
+      margin-bottom: 2em;
     }
 
     .counter-up .content .box{
@@ -154,10 +154,6 @@
 
     .content .box .counter{
       font-size: 30px;
-    }
-
-    #read-button{
-      padding: 8px 7px;
     }
     
   }

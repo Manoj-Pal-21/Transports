@@ -33,7 +33,7 @@ const Navbar = (props) => {
                         CONTACT US
                     </Link>
                     {
-                        props.islogin &&
+                        !props.islogin &&
 
                         (
                             <>
