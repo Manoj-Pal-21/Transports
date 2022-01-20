@@ -2,7 +2,57 @@ import React, { useState, useEffect } from 'react';
 import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 import "./Booking.css";
 
+
 const Booking = () => {
+
+    //Razorpay
+
+    const loadScript = (src) => {
+        return new Promise((resolve) => {
+            const script = document.createElement("script")
+            script.src = src
+
+            script.onload = () => {
+                resolve(true)
+            }
+
+            script.onerror = () => {
+                resolve(false)
+            }
+
+            document.body.appendChild(script)
+        })
+    }
+
+    const displayRazorpay = async (amount) => {
+        const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
+
+        if (!res) {
+            alert("You are offline... Failed lo load Razorpay SDK")
+            return
+        }
+
+        const options = {
+            key: "rzp_test_U18kHVu8D2FUuP",
+            currency: "INR",
+            amount: amount * 100,
+            name: "Manoj",
+            description: "Thanks for purchasing",
+            image: "https://i.pinimg.com/originals/2e/f2/f3/2ef2f3289430a49cfbd483bf44dd2f17.jpg",
+
+            handler: function (response) {
+                alert("payment is Successfull")
+            },
+            prefill: {
+                name: "Manoj"
+            }
+        };
+
+        const paymentObject = new window.Razorpay(options)
+        paymentObject.open()
+    }
+
+    //checkboxcost 
 
     const [cost, setCost] = useState("");
 
@@ -212,7 +262,12 @@ const Booking = () => {
                     <span>
                         <h6> Total <strong>&nbsp;₹ {cost}</strong></h6>
                     </span>
-                    <button className="Booking-submit">
+                    <button
+                        className="Booking-submit"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            displayRazorpay(cost);
+                        }}>
                         Book Truck
                     </button>
                 </fieldset>
