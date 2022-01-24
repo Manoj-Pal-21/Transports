@@ -1,12 +1,72 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import domain from '../utils/utils';
 import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 import "./Booking.css";
 
 
 const Booking = () => {
 
+    const [cost, setCost] = useState("0");
+    const [booking, setBooking] = useState({ name: "", lastname: "", phone: "", address: "", city: "", vehicles: "", from: "", to: "", cost: "" });
+
+    useEffect(() => {
+        console.log("hbjdvbhjd");
+        window.scrollTo(0, 0);
+    }, []);
+
+
+    const handleInput = (e) => {
+        let name, value;
+        console.log(e)
+        name = e.target.name
+        value = e.target.value
+        console.log(name, value)
+
+        setBooking({ ...booking, [name]: value });
+
+        if (e.target.type === "checkbox") {
+            if (e.target.checked) {
+                setCost(Number(cost) + Number(e.target.value));
+            } else {
+                setCost(Number(cost) - Number(e.target.value));
+            };
+        };
+    };
+
+    const PostData = async () => {
+        const { name, lastname, phone, address, city, vehicles, from, to, cost } = booking;
+        const res = await fetch(`${domain}/booking`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                lastname,
+                phone,
+                address,
+                city,
+                vehicles,
+                from,
+                to,
+                cost
+            })
+        });
+
+        const data = await res.json();
+
+        if (!data.success || !data) {
+            window.alert(data.error);
+        } else {
+            window.alert(data.message);
+        }
+    };
+
     //Razorpay
 
+    const history = useHistory();
     const loadScript = (src) => {
         return new Promise((resolve) => {
             const script = document.createElement("script")
@@ -24,24 +84,33 @@ const Booking = () => {
         })
     }
 
+
     const displayRazorpay = async (amount) => {
+        const { name, lastname, phone, address, city, vehicles, from, to, cost } = booking;
+
+        if (!name || !lastname || !phone || !address || !city || !vehicles || !from || !to || !cost) {
+            alert("Please fill the fields");
+            return
+        };
         const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
 
         if (!res) {
             alert("You are offline... Failed lo load Razorpay SDK")
             return
-        }
+        };
 
         const options = {
             key: "rzp_test_U18kHVu8D2FUuP",
             currency: "INR",
             amount: amount * 100,
-            name: "Manoj",
+            name: `${booking.name} ${booking.lastname}`,
             description: "Thanks for purchasing",
             image: "https://i.pinimg.com/originals/2e/f2/f3/2ef2f3289430a49cfbd483bf44dd2f17.jpg",
 
-            handler: function (response) {
+            handler: function () {
                 alert("payment is Successfull")
+                PostData();
+                history.push("/Bookingdetails");
             },
             prefill: {
                 name: "Manoj"
@@ -52,24 +121,6 @@ const Booking = () => {
         paymentObject.open()
     }
 
-    //checkboxcost 
-
-    const [cost, setCost] = useState("");
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        setCost("0");
-    }, []);
-
-
-    const handleInput = (e) => {
-        if (e.target.checked) {
-            setCost(Number(cost) + Number(e.target.value));
-        } else {
-            setCost(Number(cost) - Number(e.target.value));
-        };
-    };
-
     return (
         <div className='form-table'>
             <form>
@@ -77,39 +128,74 @@ const Booking = () => {
                 <h3>Please fill in the form correctly to book a truck Online</h3>
                 <fieldset>
 
-                    <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">NAME <strong>*</strong></label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter your name" autoComplete='off' required />
+                    <div className="mb-3">
+                        <label htmlFor="disabledTextInput" className="form-label">NAME <strong>*</strong></label>
+                        <input type="text" id="disabledTextInput" className="form-control" placeholder="Enter your name" autoComplete='off'
+                            name="name"
+                            value={booking.name}
+                            onChange={handleInput}
+                            required />
                     </div>
 
-                    <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">LASTNAME <strong>*</strong></label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter your surname" autoComplete='off' required />
+                    <div className="mb-3">
+                        <label htmlFor="disabledTextInput" className="form-label">LASTNAME <strong>*</strong></label>
+                        <input type="text" id="disabledTextInput" className="form-control" placeholder="Enter your surname" autoComplete='off'
+                            name="lastname"
+                            value={booking.lastname}
+                            onChange={handleInput}
+                            required />
                     </div>
 
-                    <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Phone <strong>*</strong></label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter your number" autoComplete='off' required />
+                    <div className="mb-3">
+                        <label htmlFor="disabledTextInput" className="form-label">Phone <strong>*</strong></label>
+                        <input type="number" id="disabledTextInput" className="form-control" placeholder="Enter your number" autoComplete='off' maxLength={10}
+                            onInput={(e) => {
+                                console.log(e.target.maxLength)
+                                if (e.target.value.length > e.target.maxLength) {
+                                    e.target.value = e.target.value.slice(0, e.target.maxLength);
+                                };
+                            }
+                            }
+                            name="phone"
+                            value={booking.phone}
+                            onChange={handleInput}
+                            required />
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">ADDRESS <strong>*</strong> </label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" autoComplete='off' required></textarea>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlTextarea1">ADDRESS <strong>*</strong> </label>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" autoComplete='off'
+                            name="address"
+                            value={booking.address}
+                            onChange={handleInput}
+                            required></textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">City <strong>*</strong> </label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter your city" autoComplete='off' required />
+                    <div className="mb-3">
+                        <label htmlFor="disabledTextInput" className="form-label">City <strong>*</strong> </label>
+                        <input type="text" id="disabledTextInput" className="form-control" placeholder="Enter your city" autoComplete='off'
+                            name="city"
+                            value={booking.city}
+                            onChange={handleInput}
+                            required />
                     </div>
 
-                    <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">STATE / PROVINCE</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter your state" autoComplete='off' />
+                    <div className="mb-3">
+                        <label htmlFor="disabledTextInput" className="form-label">STATE / PROVINCE</label>
+                        <input type="text" id="disabledTextInput" className="form-control" placeholder="Enter your state" autoComplete='off' />
                     </div>
 
-                    <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">POSTAL / ZIPCODE</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter your state" autoComplete='off' />
+                    <div className="mb-3">
+                        <label htmlFor="disabledTextInput" className="form-label">POSTAL / ZIPCODE</label>
+                        <input type="number" id="disabledTextInput" className="form-control" placeholder="Enter your state" autoComplete='off'  maxLength={6}
+                            onInput={(e) => {
+                                console.log(e.target.maxLength)
+                                if (e.target.value.length > e.target.maxLength) {
+                                    e.target.value = e.target.value.slice(0, e.target.maxLength);
+                                };
+                            }
+                            }
+                        />
                     </div>
 
                     <div className='date-select'>
@@ -117,9 +203,13 @@ const Booking = () => {
                     </div>
 
                     <div className='select-box'>
-                        <label for="disabledTextInput" class="form-label">SELECT VEHICLES <strong>*</strong></label>
-                        <select class="form-select" aria-label="Default select example" required>
-                            <option selected="selected"></option>
+                        <label htmlFor="disabledTextInput" className="form-label">SELECT VEHICLES <strong>*</strong></label>
+                        <select className="form-select" aria-label="Default select example"
+                            name="vehicles"
+                            value={booking.vehicles}
+                            onChange={handleInput}
+                            required>
+                            <option value="">Select Vehicles</option>
                             <option value="Agricultural Truck"> Agricultural Truck</option>
                             <option value="Box/Straight Truck"> Box/Straight Truck </option>
                             <option value="Car Carrier">Car Carrier</option>
@@ -137,9 +227,13 @@ const Booking = () => {
                     </div>
 
                     <div className='select-box'>
-                        <label for="disabledTextInput" class="form-label">FROM :</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected="selected">  </option>
+                        <label htmlFor="disabledTextInput" className="form-label">FROM <strong>*</strong></label>
+                        <select className="form-select" aria-label="Default select example"
+                            name="from"
+                            value={booking.from}
+                            onChange={handleInput}
+                            required>
+                            <option value="">Select From State</option>
                             <option value="Andhra Pradesh"> Andhra Pradesh </option>
                             <option value="Assam"> Assam </option>
                             <option value="Bihar"> Bihar</option>
@@ -172,9 +266,13 @@ const Booking = () => {
                     </div>
 
                     <div className='select-box'>
-                        <label for="disabledTextInput" class="form-label">TO :</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected="selected">  </option>
+                        <label htmlFor="disabledTextInput" className="form-label">TO :<strong>*</strong></label>
+                        <select className="form-select" aria-label="Default select example"
+                            name="to"
+                            value={booking.to}
+                            onChange={handleInput}
+                            required>
+                            <option value=""> Select To State </option>
                             <option value="Andhra Pradesh"> Andhra Pradesh </option>
                             <option value="Assam"> Assam </option>
                             <option value="Bihar"> Bihar</option>
@@ -208,37 +306,37 @@ const Booking = () => {
 
                     <div className='price'>
                         <h4>Truck Fire prices <strong>*</strong></h4>
-                        <input type="checkbox" value="500" onChange={handleInput} />
+                        <input type="checkbox" name="cost" value="500" onChange={handleInput} />
                         <span className='price-text'>&nbsp;&nbsp;0 - 10 km Truck Fare <strong>&nbsp;&nbsp;₹ 500</strong></span>
 
                         <br />
 
-                        <input type="checkbox" value="1000" onChange={handleInput} />
+                        <input type="checkbox" name="cost" value="1000" onChange={handleInput} />
                         <span className='price-text'>&nbsp;&nbsp;0 - 10 km Truck Fare(Return Included) <strong>&nbsp;&nbsp;₹ 1000</strong></span>
 
                         <br />
 
-                        <input type="checkbox" value="1500" onChange={handleInput} />
+                        <input type="checkbox" name="cost" value="1500" onChange={handleInput} />
                         <span className='price-text'>&nbsp;&nbsp;11 - 20 km Truck Fare <strong>&nbsp;&nbsp;₹ 1500</strong></span>
 
                         <br />
 
-                        <input type="checkbox" value="2000" onChange={handleInput} />
+                        <input type="checkbox" name="cost" value="2000" onChange={handleInput} />
                         <span className='price-text'>&nbsp;&nbsp;11 - 20 km Truck Fare(Return Included) <strong>&nbsp;&nbsp;₹ 2000</strong></span>
 
                         <br />
 
-                        <input type="checkbox" value="2500" onChange={handleInput} />
+                        <input type="checkbox" name="cost" value="2500" onChange={handleInput} />
                         <span className='price-text'>&nbsp;&nbsp;21 - 40 km Truck Fare <strong>&nbsp;&nbsp;₹ 2500</strong></span>
 
                         <br />
 
-                        <input type="checkbox" value="5000" onChange={handleInput} />
+                        <input type="checkbox" name="cost" value="5000" onChange={handleInput} />
                         <span className='price-text'>&nbsp;&nbsp;21 - 40 km Truck Fare(Return Included) <strong>&nbsp;&nbsp;₹ 5000</strong></span>
                     </div>
 
                     <div className='red-text'>
-                        <span class="form-description-content">If you want to return with us please select the payments with "return included" prices. Thanks!</span>
+                        <span className="form-description-content">If you want to return with us please select the payments with "return included" prices. Thanks!</span>
                     </div>
 
                     <div className='subtotal-container'>

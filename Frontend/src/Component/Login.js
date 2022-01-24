@@ -16,6 +16,7 @@ const Login = (props) => {
 
         const res = await fetch(`${domain}/signin`, {
             method: "POST",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json"
             },
@@ -30,10 +31,10 @@ const Login = (props) => {
         if (!data.success || !data) {
             window.alert(data.error);
         } else {
-            window.alert(data.message)
-            props.update(true);
+            window.alert(data.message);
+            localStorage.setItem("isadmin", data.isadmin);
             history.push("/");
-        }
+        };
     }
 
     return (

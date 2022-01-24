@@ -8,6 +8,7 @@ import Ourservices from './Component/Ourservices';
 import Ourclients from './Component/Ourclients';
 import Ourcontacts from './Component/Ourcontacts';
 import Booking from "./Component/Booking";
+import Bookingdetails from "./Component/Bookingdetails";
 import Userbooking from "./Component/Userbooking";
 import Login from "./Component/Login";
 import Signup from "./Component/Signup";
@@ -28,6 +29,7 @@ const App = () => {
       <Route path="/Ourclients" component={Ourclients} />
       <Route path="/Ourcontact" component={Ourcontacts} />
       <Route path="/Booking" component={Booking} />
+      <Route path="/Bookingdetails" component={Bookingdetails} />
       <Route path="/Userbooking" component={Userbooking} />
       <Route path="/Login" render={() => (<Login update={(flag) => setIsLogin(flag)} />)} />
       <Route path="/Signup" component={Signup} />

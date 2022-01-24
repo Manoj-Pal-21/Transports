@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
 
@@ -8,12 +9,13 @@ dotenv.config({path:"./config.env"});
 
 require("./db/conn");
 // const User = require("./model/userSchema");
-app.use(cors({"origin": "*"}))
+app.use(cookieParser());
+app.use(cors({"origin": "*", "credentials": true}));
 app.use(express.json());
 
 //link the router file
-
 app.use(require("./router/auth"));
+
 
 // const DB = "mongodb+srv://manoj:<password>@cluster0.kwgod.mongodb.net/projectname?retryWrites=true&w=majority"
 

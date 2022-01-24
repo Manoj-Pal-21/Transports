@@ -4,11 +4,15 @@ import { withRouter } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = (props) => {
+
+    const Admin = localStorage.getItem("isadmin");
+
     const [showLinks, setShowLinks] = useState(false);
 
     const handleSubmit = () => {
         props.logout(false);
-    }
+        localStorage.removeItem("isadmin");
+    };
 
     return (
         <div className='navbar'>
@@ -33,36 +37,36 @@ const Navbar = (props) => {
                         CONTACT US
                     </Link>
                     {
-                        !props.islogin &&
-
+                        Admin &&
                         (
+                            Admin === "true"
+                            ?
+                            <Link to="/Userbooking" className='a' onClick={() => setShowLinks(!showLinks)}>
+                                USER BOOKINGS
+                            </Link>
+                            :
                             <>
                                 <Link to="/Booking" className='a' onClick={() => setShowLinks(!showLinks)}>
                                     BOOKING FORM
                                 </Link>
-                                <Link to="/Userbooking" className='a' onClick={() => setShowLinks(!showLinks)}>
-                                    USER BOOKINGS
+                                <Link to="/Bookingdetails" className='a' onClick={() => setShowLinks(!showLinks)}>
+                                    BOOKING DETAILS
                                 </Link>
                             </>
-
                         )
                     }
                 </div>
             </div>
             <div className='right-side'>
                 {
-                    !props.islogin
+                    !Admin
                         ?
-                        (
-                            <>
-                                <Link to="/login" className='login' onClick={() => setShowLinks(false)}>Log In</Link>
-                                <Link to="/signup" className='signup' onClick={() => setShowLinks(false)}>Sign Up</Link>
-                            </>
-                        )
+                        <>
+                            <Link to="/login" className='login' onClick={() => setShowLinks(false)}>Log In</Link>
+                            <Link to="/signup" className='signup' onClick={() => setShowLinks(false)}>Sign Up</Link>
+                        </>
                         :
-                        (
-                            <Link to="/login" className='logout' onClick={handleSubmit}>Logout</Link>
-                        )
+                        <Link to="/login" className='logout' onClick={handleSubmit}>Logout</Link>
                 }
             </div>
 

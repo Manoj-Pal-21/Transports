@@ -8,6 +8,7 @@ import "./Home.css";
 const Home = () => {
 
     window.scrollTo(0, 0);
+    // console.log(localStorage.getItem("isadmin"));
 
     return (
         <div className="main-container">
