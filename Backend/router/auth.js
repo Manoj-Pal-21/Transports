@@ -11,8 +11,6 @@ router.get("/", (req, res) => {
     res.send(`Hello world from the server router js`);
 });
 
-//admin
-
 
 //booking
 
@@ -22,7 +20,7 @@ router.post("/booking", async (req, res) => {
     if (!name || !lastname || !phone || !address || !city || !vehicles || !from || !to || !cost) {
         return res.status(422).json({ success: false, error: "Plz Fill Out This Field! " });
     };
- 
+
     try {
         const token = req.cookies.jwtoken
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
@@ -32,21 +30,51 @@ router.post("/booking", async (req, res) => {
     }
     catch (error) {
         console.log(error);
+        res.status(400).json({ success: false, error })
     };
 });
 
 router.get("/getUserBooking", async (req, res) => {
     try {
         const token = req.cookies.jwtoken;
-        const verifyToken = jwt.verify( token, process.env.SECRET_KEY);
+        const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
         const userBooking = await Booking.find({ user_id: verifyToken._id });
         res.status(200).json({ success: true, data: userBooking });
     }
     catch (error) {
-        // res.status(401).send("Unauthorized: No token Provided")
-        console.log(error); 
+        console.log(error);
+        res.status(400).json({ success: false, error })
     }
-})
+});
+
+//admin
+
+router.get("/getAllUserBookings", async (req, res) => {
+    try {
+        const AllUserBookings = await Booking.find({});
+        res.status(200).json({ success: true, data: AllUserBookings });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, error })
+    };
+});
+
+//delete
+
+router.delete("/deleteUserData/:id", async (req, res) => {
+    try {
+        let id = req.params.id;
+        await Booking.remove({_id: id});
+        const AllUserBookings = await Booking.find({});
+        res.status(200).json({ success: true, message: "Delete Successful.", data: AllUserBookings });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, error })
+    }
+});
+
 
 //register
 
@@ -71,6 +99,7 @@ router.post("/register", async (req, res) => {
 
     } catch (err) {
         console.log(err);
+        res.status(400).json({ success: false, error })
     }
 
 });
@@ -111,6 +140,7 @@ router.post("/signin", async (req, res) => {
 
     } catch (err) {
         console.log(err);
+        res.status(400).json({ success: false, error })
     }
 });
 

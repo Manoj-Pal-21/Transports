@@ -11,7 +11,7 @@ const Booking = () => {
     const [booking, setBooking] = useState({ name: "", lastname: "", phone: "", address: "", city: "", vehicles: "", from: "", to: "", cost: "" });
 
     useEffect(() => {
-        console.log("hbjdvbhjd");
+        // console.log("hbjdvbhjd");
         window.scrollTo(0, 0);
     }, []);
 

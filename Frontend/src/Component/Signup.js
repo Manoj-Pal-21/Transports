@@ -41,12 +41,9 @@ const SignUp = () => {
 
         if (!data.success || !data) {
             window.alert(data.error);
-            // console.log(data.error);
         } else {
             window.alert(data.message);
-            // console.log(data.message);
-
-            history.push("/login");
+             history.push("/login");
         };
     };
 

@@ -14,10 +14,10 @@ import Login from "./Component/Login";
 import Signup from "./Component/Signup";
 import Footer from './Component/Footer';
 
-const App = () => {
+const App = (props) => {
 
   const [islogin, setIsLogin] = useState(false);
-
+  const Admin = localStorage.getItem("isadmin");
   return (
     <BrowserRouter>
 
@@ -28,9 +28,33 @@ const App = () => {
       <Route path="/Ourservices" component={Ourservices} />
       <Route path="/Ourclients" component={Ourclients} />
       <Route path="/Ourcontact" component={Ourcontacts} />
-      <Route path="/Booking" component={Booking} />
-      <Route path="/Bookingdetails" component={Bookingdetails} />
-      <Route path="/Userbooking" component={Userbooking} />
+      <Route
+        path="/Booking"
+        render={(props) => {
+          if (Admin) {
+            return <Booking />
+          }
+          props.history.push("/Login");
+        }}
+      />
+      <Route
+        path="/Bookingdetails"
+        render={(props) => {
+          if (Admin) {
+            return <Bookingdetails />
+          }
+          props.history.push("/Login");
+        }}
+      />
+      <Route
+        path="/Userbooking"
+        render={(props) => {
+          if (Admin) {
+            return <Userbooking />
+          }
+          props.history.push("/Login");
+        }}
+      />
       <Route path="/Login" render={() => (<Login update={(flag) => setIsLogin(flag)} />)} />
       <Route path="/Signup" component={Signup} />
 

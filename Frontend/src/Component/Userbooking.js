@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import domain from "../utils/utils";
 import { v4 as uuidv4 } from 'uuid';
 import "./Userbooking.css";
@@ -7,9 +6,9 @@ import "./Userbooking.css";
 const UserBooking = () => {
 
     const [bookingData, setBoookingData] = useState("");
-    const userBookings = async () => {
+    const AllUserBookings = async () => {
         try {
-            const res = await fetch(`${domain}/getUserBooking`, {
+            const res = await fetch(`${domain}/getAllUserBookings`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -34,9 +33,17 @@ const UserBooking = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        userBookings();
+        AllUserBookings();
     }, []);
 
+    const DeleteBooking = async (id) => {
+        let res = await fetch(`${domain}/deleteUserData/${id}`, {
+            method: "DELETE"
+        });
+        
+        const data = await res.json();
+        setBoookingData(data.data);
+    }
 
     return (
         <div className='admin-table'>
@@ -55,7 +62,7 @@ const UserBooking = () => {
                                 <th>FROM</th>
                                 <th>TO</th>
                                 <th>COST</th>
-                                <th>VIEW</th>
+                                <th>DELETE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,11 +100,13 @@ const UserBooking = () => {
                                                     {data.cost ? data.cost : "N/A"}
                                                 </td>
                                                 <td data-title="VIEW">
-                                                    <Link><img src="https://img.icons8.com/ios-glyphs/20/000000/edit--v1.png" className='details-button' alt="" /></Link>
-
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                                                    <Link><img src="https://img.icons8.com/material-rounded/20/000000/filled-trash.png" className='details-button' alt="" /></Link>
+                                                    <a href="#" onClick={() => DeleteBooking(data._id)}>
+                                                        <img
+                                                            src="https://img.icons8.com/material-rounded/20/000000/filled-trash.png"
+                                                            className='details-button'
+                                                            alt=""
+                                                        />
+                                                    </a>
                                                 </td>
                                             </tr>
                                         )
@@ -113,13 +122,7 @@ const UserBooking = () => {
                                         <td data-title="FROM"> N/A </td>
                                         <td data-title="TO"> N/A </td>
                                         <td data-title="COST"> N/A </td>
-                                        <td data-title="VIEW">
-                                            <Link><img src="https://img.icons8.com/ios-glyphs/20/000000/edit--v1.png" className='details-button' alt="" /></Link>
-
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                                            <Link><img src="https://img.icons8.com/material-rounded/20/000000/filled-trash.png" className='details-button' alt="" /></Link>
-                                        </td>
+                                        <td data-title="VIEW"> N/A </td>
                                     </tr>
                             }
 
