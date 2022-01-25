@@ -24,13 +24,13 @@ const Ourcontacts = () => {
                     <p className='h-para'>C-1/4 2nd floor, Behind Ambica Society, PrashantVihar, Rohini, New Delhi-110085</p>
 
                     <div className='icon-no'>
-                        <a href="tel:1234567890" className="fas fa-phone"><strong> Phone : </strong></a>
+                        <a href="tel:8408966407" className="fas fa-phone"><strong> Phone : </strong></a>
                         <br />
                         <span>27557771/2/3</span>
                     </div>
 
                     <div className='icon-email'>
-                        <a href="mailto:aadimaurya2000@gmail.com" className='fa fa-envelope'><strong> Email : </strong></a>
+                        <a href="mailto:manojpubg1999@gmail.com" className='fa fa-envelope'><strong> Email : </strong></a>
                         <br />
                         <span>manoj935@gmail.com</span>
                     </div>
@@ -42,13 +42,13 @@ const Ourcontacts = () => {
                     <p className='h-para'>107, Kuber Complex, OppLaxmi Industrial Estate, Oshiwara Link Road, Andheri West-400053</p>
 
                     <div className='icon-no'>
-                        <a href="tel:1234567890" className='fas fa-phone'><strong> Phone : </strong></a>
+                        <a href="tel:9834848901" className='fas fa-phone'><strong> Phone : </strong></a>
                         <br />
                         <span>26730674, 66921557</span>
                     </div>
 
                     <div className='icon-email'>
-                        <a href="mailto:aadimaurya2000@gmail.com" className='fa fa-envelope'><strong> Email : </strong></a>
+                        <a href="mailto:00rahul00sah@gmail.com" className='fa fa-envelope'><strong> Email : </strong></a>
                         <br />
                         <span>rahul935@gmail.com</span>
                     </div>
@@ -61,7 +61,7 @@ const Ourcontacts = () => {
 
 
                     <div className='icon-no'>
-                        <a href="tel:1234567890" className='fas fa-phone'><strong> Phone : </strong></a>
+                        <a href="tel:9699835202" className='fas fa-phone'><strong> Phone : </strong></a>
                         <br />
                         <span>080-23570315/16</span>
                     </div>
