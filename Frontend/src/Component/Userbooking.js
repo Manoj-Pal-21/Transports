@@ -40,7 +40,7 @@ const UserBooking = () => {
         let res = await fetch(`${domain}/deleteUserData/${id}`, {
             method: "DELETE"
         });
-        
+
         const data = await res.json();
         setBoookingData(data.data);
     }
