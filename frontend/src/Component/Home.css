@@ -175,12 +175,6 @@
 
 }
 
-@media screen and (max-width: 560px){
-  .p-text{
-    font-size: 9px;
-  }
-}
-
 
 @media screen and (max-width: 580px) {
   .counter-up .content .box {

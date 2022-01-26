@@ -52,10 +52,6 @@ figcaption p {
 
 @media screen and (max-width: 1000px) {
 
-    .c-img {
-        height: 30em;
-    }
-
     .container-skew0 {
         display: block;
     }
