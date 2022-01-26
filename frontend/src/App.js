@@ -32,7 +32,9 @@ const App = () => {
       <Route
         path="/Booking"
         render={(props) => {
+          const Admin = localStorage.getItem("isadmin");
           if (Admin) {
+            console.log(Admin)
             return <Booking />
           }
           props.history.push("/Login");
@@ -41,6 +43,7 @@ const App = () => {
       <Route
         path="/Bookingdetails"
         render={(props) => {
+          const Admin = localStorage.getItem("isadmin");
           if (Admin) {
             return <Bookingdetails />
           }
@@ -50,15 +53,30 @@ const App = () => {
       <Route
         path="/Userbooking"
         render={(props) => {
+          const Admin = localStorage.getItem("isadmin");
           if (Admin) {
             return <Userbooking />
-          }
+          };
           props.history.push("/Login");
         }}
       />
-      <Route path="/Login" render={() => (<Login update={(flag) => setIsLogin(flag)} />)} />
-      <Route path="/Signup" component={Signup} />
-
+      <Route path="/Login" render={(props) => {
+        const Admin = localStorage.getItem("isadmin");
+        if (!Admin) {
+          return <Login update={(flag) => setIsLogin(flag)} />
+        };
+        props.history.push("/");
+      }}
+      />
+      <Route path="/Signup" render={(props) => {
+        const Admin = localStorage.getItem("isadmin");
+        if (!Admin) {
+          return <Signup />
+        };
+        props.history.push("/");
+      }}
+      />
+      
       <Footer />
 
     </BrowserRouter>
