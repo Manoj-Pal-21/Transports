@@ -1,0 +1,155 @@
+
+.container-skew{
+    margin: 2em 0em;
+}
+
+.c-text{
+    display: flex;
+}
+
+.c-text .s-img{
+    width: 100vh;
+    margin-left: 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header-p{
+    margin-top: 4em;
+}
+
+.c-text h1{
+    font-size: 2em;
+    font-weight: bold;
+    color:#292F37;
+}
+
+.c-text p{
+    font-size: 20px;
+    margin-top: 2em;
+    padding: 0em 3em;
+    color: rgb(110, 105, 105);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* image line 2 */
+
+.container-skew1{
+    display: flex;
+}
+
+.c-text1{
+    display: flex;
+}
+
+.c-text1 h1{
+    font-size: 2em;
+    font-weight: bold;
+    color:#292F37;
+}
+
+.c-text1 p{
+    font-size: 20px;
+    margin-top: 2em;
+    padding: 0em 4em;
+    color: rgb(110, 105, 105);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.c-text1 .s-img1{
+    width: 100vh;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+   
+
+   
+@media screen and (max-width: 1000px){
+    .c-text{
+        display: block;
+    }
+
+    .c-text1{
+        display: block;
+    }
+
+
+    .c-text .s-img{
+        width:60em;
+        height: 30em;
+        margin:  0em 0.8em;
+        border-radius: 1em; 
+        box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .c-text1 .s-img1{
+        width:60em;
+        height: 30em;
+        margin: 0.8em;
+        border-radius: 1em;
+        box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    } 
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .c-text{
+        display: block;
+    }
+
+    .c-text1{
+        display: block;
+    }
+
+    .c-text .s-img{
+        width:23em;
+        margin:  0em 0.8em;
+        border-radius: 1em; 
+        box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .header-p{
+        margin: 2em 0.5em;
+    }
+
+     .c-text h1{
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+        margin-right: 2em;
+    }
+
+    .c-text p{
+        font-size: 1em;
+        margin:0;
+        padding:0;
+        margin: 1em;   
+    } 
+
+    .c-text1 h1{
+        font-size: 1.2em;
+        margin: 0;
+        padding: 0;
+        margin-top: 1em;
+        margin-right: 3em;
+    }
+
+    .c-text1 p{
+        font-size: 1em;
+        margin:0;
+        padding:0;
+        margin: 1em;  
+    }
+
+     .c-text1 .s-img1{
+        width:23em;
+        margin: 0.8em;
+        border-radius: 1em;
+        box-shadow: 0 8px 6px 0 rgba(7, 7, 7, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    } 
+}
+
+

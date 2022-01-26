@@ -21,7 +21,7 @@ app.use(require("./router/auth"));
 
 // const DB = process.env.DATABASE;
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 //Routing
  
@@ -56,6 +56,16 @@ app.get("/Signin", (req, res) => {
 app.get("/Signup", (req, res) => {
     res.send(`Hello world signup from the server`);
 });
+
+if (process.env.NODE_ENV == "production") {
+    app.use(express.static("./client/build"));
+    const path = require("path");
+    app.get("*",(req,res) => {
+        res.sendFile(path.resolve(__dirname,"client","build","index.html"), (err) => {
+            if(err) res.status(500).send(err);
+        });
+    });
+}
 
 app.listen(PORT, () => {
     console.log(`server is running on port no ${PORT}`)
