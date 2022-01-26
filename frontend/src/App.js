@@ -17,8 +17,6 @@ import Footer from './Component/Footer';
 const App = () => {
 
   const [islogin, setIsLogin] = useState(false);
-  const Admin = localStorage.getItem("isadmin");
-  console.log(Admin)
   return (
     <BrowserRouter>
 
@@ -76,7 +74,7 @@ const App = () => {
         props.history.push("/");
       }}
       />
-      
+
       <Footer />
 
     </BrowserRouter>
