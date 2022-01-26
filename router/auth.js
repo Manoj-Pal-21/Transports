@@ -7,10 +7,6 @@ require("../db/conn");
 const User = require("../model/userSchema");
 const Booking = require("../model/bookingSchema");
 
-router.get("/", (req, res) => {
-    res.send(`Hello world from the server router js`);
-});
-
 
 //booking
 
