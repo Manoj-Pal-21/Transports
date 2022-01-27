@@ -99,7 +99,7 @@ const UserBooking = () => {
                                                 <td data-title="COST">
                                                     {data.cost ? data.cost : "N/A"}
                                                 </td>
-                                                <td data-title="VIEW">
+                                                <td data-title="DELETE">
                                                     <a href="#" onClick={() => DeleteBooking(data._id)}>
                                                         <img
                                                             src="https://img.icons8.com/material-rounded/20/000000/filled-trash.png"
