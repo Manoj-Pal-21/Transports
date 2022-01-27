@@ -12,6 +12,7 @@ const Navbar = (props) => {
     const handleSubmit = () => {
         props.logout(false);
         localStorage.removeItem("isadmin");
+        setShowLinks(false);
     };
 
     return (
@@ -40,19 +41,19 @@ const Navbar = (props) => {
                         Admin &&
                         (
                             Admin === "true"
-                            ?
-                            <Link to="/Userbooking" className='a' onClick={() => setShowLinks(!showLinks)}>
-                                USER BOOKINGS
-                            </Link>
-                            :
-                            <>
-                                <Link to="/Booking" className='a' onClick={() => setShowLinks(!showLinks)}>
-                                    BOOKING FORM
+                                ?
+                                <Link to="/Userbooking" className='a' onClick={() => setShowLinks(!showLinks)}>
+                                    USER BOOKINGS
                                 </Link>
-                                <Link to="/Bookingdetails" className='a' onClick={() => setShowLinks(!showLinks)}>
-                                    BOOKING DETAILS
-                                </Link>
-                            </>
+                                :
+                                <>
+                                    <Link to="/Booking" className='a' onClick={() => setShowLinks(!showLinks)}>
+                                        BOOKING FORM
+                                    </Link>
+                                    <Link to="/Bookingdetails" className='a' onClick={() => setShowLinks(!showLinks)}>
+                                        BOOKING DETAILS
+                                    </Link>
+                                </>
                         )
                     }
                 </div>
@@ -66,7 +67,7 @@ const Navbar = (props) => {
                             <Link to="/signup" className='signup' onClick={() => setShowLinks(false)}>Sign Up</Link>
                         </>
                         :
-                        <Link to="/login" className='logout' onClick={handleSubmit}>Logout</Link>
+                            <Link to="/login" className='logout' onClick={handleSubmit} >Logout</Link>
                 }
             </div>
 
