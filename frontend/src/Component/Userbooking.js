@@ -122,7 +122,7 @@ const UserBooking = () => {
                                         <td data-title="FROM"> N/A </td>
                                         <td data-title="TO"> N/A </td>
                                         <td data-title="COST"> N/A </td>
-                                        <td data-title="VIEW"> N/A </td>
+                                        <td data-title="DELETE"> N/A </td>
                                     </tr>
                             }
 
