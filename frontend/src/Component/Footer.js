@@ -22,7 +22,7 @@ const Footer = () => {
 
                     </p>
 
-                    <p className="footer-company-name">Copyright © 2021 <strong>AadarshDeveloper</strong> | Logistics. Simplified. All Rights Reserved</p>
+                    <p className="footer-company-name">Copyright © 2021 <strong>AADARSH TRANSPORT</strong> | Logistics. Simplified. All Rights Reserved</p>
                 </div>
 
                 <div className="footer-center">
@@ -45,7 +45,7 @@ const Footer = () => {
                 <div className="footer-right">
                     <p className="footer-company-about">
                         About the company
-                        <strong> Aadarsh Developer </strong> introduce ourselves as one of the leading transport Company of India founded in January, 1985 having their own fleet of 475 trucks, including Car Carrier Trailers/Goods Containers Trailers / Multi XL Containers.
+                        <strong> AADARSH TRANSPORT </strong> introduce ourselves as one of the leading transport Company of India founded in January, 1985 having their own fleet of 475 trucks, including Car Carrier Trailers/Goods Containers Trailers / Multi XL Containers.
                         and
                         Effects along with
                         HTML, JavaScript and Projects using C/C++.
