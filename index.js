@@ -6,11 +6,11 @@ const cors = require("cors");
 const app = express();
 
 dotenv.config({path:"./config.env"});
-
+``
 require("./db/conn");
 // const User = require("./model/userSchema");
 app.use(cookieParser());
-app.use(cors({"origin": "*", "credentials": true}));
+app.use(cors({"origin": true, "credentials": true}));
 app.use(express.json());
 
 //link the router file

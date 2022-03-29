@@ -10,7 +10,7 @@
 .admin-table{
     position: relative;
     top: 4rem;
-    margin: 3rem; 
+    margin: 5rem; 
 }
 
 @media screen and (max-width: 800px) {
