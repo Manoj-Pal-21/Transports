@@ -49,7 +49,7 @@ const SignUp = () => {
 
     return (
         <div className="container">
-            <div className="app-wrapper">
+            <div className="app-wrapper mb-3 mt-3">
                 <h2 className="title">Create Account</h2>
                 <div className="form-container">
                     <form className="form-wrapper">

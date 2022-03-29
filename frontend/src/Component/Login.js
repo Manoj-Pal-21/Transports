@@ -39,7 +39,7 @@ const Login = (props) => {
 
     return (
         <div className="container">
-            <div className="app-wrapper">
+            <div className="app-wrapper mb-3 mt-3">
                 <h2 className="title">login</h2>
                 <div className="form-container">
                     <form className="form-wrapper">
